@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav_graph.xml"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.biybiruza.musicapp.ui.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_musicListFragment"
+            app:destination="@id/musicListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/favoriteFragment"
+        android:name="com.biybiruza.musicapp.ui.fovarite.FovariteFragment"
+        android:label="fragment_fovarite"
+        tools:layout="@layout/fragment_fovarite" />
+    <fragment
+        android:id="@+id/musicsFragment"
+        android:name="com.biybiruza.musicapp.ui.musics.MusicsFragment"
+        android:label="fragment_musics"
+        tools:layout="@layout/fragment_musics" />
+    <fragment
+        android:id="@+id/musicListFragment"
+        android:name="com.biybiruza.musicapp.ui.list.MusicListFragment"
+        android:label="fragment_music_list"
+        tools:layout="@layout/fragment_music_list" />
+</navigation>
