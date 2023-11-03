@@ -6,21 +6,21 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.biybiruza.musicapp.R
-import com.biybiruza.musicapp.data.SongData
 import com.biybiruza.musicapp.data.SongDataUrl
 import com.biybiruza.musicapp.databinding.ItemMusicsBinding
+import com.bumptech.glide.Glide
 
-class AdapterMusicList : RecyclerView.Adapter<AdapterMusicList.ViewHolder>() {
+class AdapterMusicListUrl : RecyclerView.Adapter<AdapterMusicListUrl.ViewHolder>() {
 
     lateinit var binding: ItemMusicsBinding
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun populateModel(model: SongData, position: Int) {
+        fun populateModel(model: SongDataUrl, position: Int) {
             binding = ItemMusicsBinding.bind(itemView)
 
             binding.tvMusicName.text = model.songName
             binding.tvAuthor.text = model.songAuthor
-            binding.ivPhoto.setImageResource(model.songImg)
+            Glide.with(itemView).load(model.songImg).into(binding.ivPhoto)
 
             itemView.setOnClickListener {
                 onClick.invoke(model, position)
@@ -28,11 +28,11 @@ class AdapterMusicList : RecyclerView.Adapter<AdapterMusicList.ViewHolder>() {
         }
     }
 
-    var list = listOf<SongData>()
+    var list = listOf<SongDataUrl>()
 
-    private var onClick: (model: SongData, position: Int) -> Unit = { model, position -> }
+    private var onClick: (model: SongDataUrl, position: Int) -> Unit = { model, position -> }
 
-    fun setOnItemClickListener(onClick: (model: SongData, position: Int) -> Unit) {
+    fun setOnItemClickListener(onClick: (model: SongDataUrl, position: Int) -> Unit) {
         this.onClick = onClick
     }
 

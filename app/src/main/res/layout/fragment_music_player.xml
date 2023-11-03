@@ -49,49 +49,71 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cv_photo"
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:layout_margin="30dp"
-        app:cardCornerRadius="20dp"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_photo"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            app:cardBackgroundColor="#30314F"
+            app:cardCornerRadius="20dp"
+            android:layout_margin="30dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:id="@+id/iv_photo"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    tools:src="@drawable/music_player_logo" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar">
-
-        <ImageView
-            android:id="@+id/iv_photo"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="centerCrop"
-            android:src="@drawable/music_player_logo" />
-
-    </androidx.cardview.widget.CardView>
+        app:layout_constraintTop_toBottomOf="@id/toolbar" />
 
     <TextView
         android:id="@+id/tv_musicName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/app_name"
+        android:layout_marginHorizontal="24dp"
+        android:gravity="center"
+        android:maxLines="2"
         android:textColor="@color/white"
         android:textSize="26sp"
-        app:layout_constraintVertical_bias="0.3"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cv_photo"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintVertical_bias="0.2"
+        tools:text="@string/app_name" />
 
     <TextView
         android:id="@+id/tv_author"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
         android:layout_marginTop="4dp"
-        android:text="@string/app_name"
+        android:gravity="center"
         android:textColor="@color/colorText"
         android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_musicName" />
+        app:layout_constraintTop_toBottomOf="@id/tv_musicName"
+        tools:text="@string/app_name" />
 
     <TextView
         android:id="@+id/tv_startTime"
@@ -100,13 +122,13 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="30dp"
         android:fontFamily="@font/montserrat_regular_400"
-        android:text="0:00"
         android:textColor="@color/colorText"
         android:textSize="12dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_author" />
+        app:layout_constraintTop_toBottomOf="@id/tv_author"
+        tools:text="0:00" />
 
-    <SeekBar
+    <androidx.appcompat.widget.AppCompatSeekBar
         android:id="@+id/seekBar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -126,71 +148,70 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="30dp"
         android:fontFamily="@font/montserrat_regular_400"
-        android:text="0:00"
         android:textColor="@color/colorText"
         android:textSize="12dp"
         app:layout_constraintBottom_toBottomOf="@id/seekBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/seekBar"
-        app:layout_constraintTop_toTopOf="@id/seekBar" />
+        app:layout_constraintTop_toTopOf="@id/seekBar"
+        tools:text="0:00" />
 
     <ImageView
         android:id="@+id/btn_quickPrevious"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:src="@drawable/ic_quick_previous"
-        android:padding="8dp"
         android:layout_marginEnd="20dp"
+        android:padding="8dp"
+        android:src="@drawable/ic_quick_previous"
+        app:layout_constraintBottom_toBottomOf="@id/btn_play"
         app:layout_constraintEnd_toStartOf="@id/btn_previous"
-        app:layout_constraintTop_toTopOf="@id/btn_play"
-        app:layout_constraintBottom_toBottomOf="@id/btn_play"/>
+        app:layout_constraintTop_toTopOf="@id/btn_play" />
 
     <ImageView
         android:id="@+id/btn_previous"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:src="@drawable/ic_skip_previous"
-        android:padding="8dp"
         android:layout_marginEnd="20dp"
+        android:padding="8dp"
+        android:src="@drawable/ic_skip_previous"
+        app:layout_constraintBottom_toBottomOf="@id/btn_play"
         app:layout_constraintEnd_toStartOf="@id/btn_play"
-        app:layout_constraintTop_toTopOf="@id/btn_play"
-        app:layout_constraintBottom_toBottomOf="@id/btn_play"/>
+        app:layout_constraintTop_toTopOf="@id/btn_play" />
 
     <ImageView
         android:id="@+id/btn_play"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:src="@drawable/ic_play"
+        android:background="@drawable/gradiant_background"
         android:foregroundGravity="center"
         android:padding="22dp"
-        android:background="@drawable/gradiant_background"
-        app:layout_constraintVertical_bias="0.5"
+        android:src="@drawable/ic_play"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/toolbar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/seekBar"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintVertical_bias="0.5" />
 
     <ImageView
         android:id="@+id/btn_next"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:src="@drawable/ic_skip_next"
-        android:padding="8dp"
         android:layout_marginStart="20dp"
+        android:padding="8dp"
+        android:src="@drawable/ic_skip_next"
+        app:layout_constraintBottom_toBottomOf="@id/btn_play"
         app:layout_constraintStart_toEndOf="@id/btn_play"
-        app:layout_constraintTop_toTopOf="@id/btn_play"
-        app:layout_constraintBottom_toBottomOf="@id/btn_play"/>
+        app:layout_constraintTop_toTopOf="@id/btn_play" />
 
     <ImageView
         android:id="@+id/btn_quickNext"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:src="@drawable/ic_quick_next"
-        android:padding="8dp"
         android:layout_marginStart="20dp"
+        android:padding="8dp"
+        android:src="@drawable/ic_quick_next"
+        app:layout_constraintBottom_toBottomOf="@id/btn_play"
         app:layout_constraintStart_toEndOf="@id/btn_next"
-        app:layout_constraintTop_toTopOf="@id/btn_play"
-        app:layout_constraintBottom_toBottomOf="@id/btn_play"/>
-
+        app:layout_constraintTop_toTopOf="@id/btn_play" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
