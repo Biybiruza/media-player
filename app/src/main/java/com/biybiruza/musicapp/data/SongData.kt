@@ -6,5 +6,5 @@ data class SongData (
     val songName: String,
     val songAuthor: String,
     val songImg: Int,
-    val songRaw: Int,
+    val songRaw: Int
 ):Serializable
